@@ -9,6 +9,8 @@ A turn-based dice game where players accumulate points while avoiding "Tuple Out
   ```
   pip install seaborn matplotlib
   ```
+  pip install pandas
+  ```
 - Run the game:
   ```
   python tuple_out_game.py
@@ -21,6 +23,8 @@ A turn-based dice game where players accumulate points while avoiding "Tuple Out
 - **Tuple Out Rule**: If all three dice show the same value, the player scores zero for the turn.
 - **Score Visualization**: At the end of the game, a line chart displays each player's scores over the turns using Seaborn.
 - **Game History Tracking**: Records and displays the scores for every turn.
+- **Game Statistics Summary**:  
+  Displays stats like total turns, average score, and number of "Tuple Outs" per player using Pandas.
 
 ## Example Gameplay
 
