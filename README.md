@@ -8,7 +8,6 @@ A turn-based dice game where players accumulate points while avoiding "Tuple Out
 - Install required libraries:
   ```
   pip install seaborn matplotlib
-  ```
   pip install pandas
   ```
 - Run the game:
