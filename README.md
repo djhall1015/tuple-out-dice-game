@@ -1,42 +1,34 @@
-**Follow the Prompts:**
-   - Enter the number of players.
-   - Provide the name for each player.
-   - Play the game by following the instructions displayed during each turn.
+# Tuple Out Dice Game
+
+A turn-based dice game where players accumulate points while avoiding "Tuple Out". The first player to reach the target score wins.
+
+## How to Run
+
+- Ensure Python is installed on your computer.
+- Install required libraries:
+  ```
+  pip install seaborn matplotlib
+  ```
+- Run the game:
+  ```
+  python tuple_out_game.py
+  ```
+- Follow the prompts to play the game.
 
 ## Features
-   - Supports two or more players.
-   - Players take turns rolling dice to accumulate points.
 
-# Turn-Based Scoring:
-   - Players roll three dice on their turn.
-   - If two dice show the same value, they are fixed and cannot be rerolled.
-   - Players can choose whether to reroll unfixed dice.
+- **Turn-Based Scoring**: Players roll dice to score points. Fixed dice cannot be rerolled.
+- **Tuple Out Rule**: If all three dice show the same value, the player scores zero for the turn.
+- **Score Visualization**: At the end of the game, a line chart displays each player's scores over the turns using Seaborn.
+- **Game History Tracking**: Records and displays the scores for every turn.
 
-# Tuple Out
-   - If all three dice have the same value during a turn, the player "Tuples Out" and scores zero points for that turn.
+## Example Gameplay
 
-# Game History Tracking
-   - At the end of the game, the program displays a detailed history of all turns, showing each player's score for every turn.
+1. **Player 1** rolls `2, 2, 4`:  
+   - Fixed `2`s, rerolls `4`, and scores `2 + 2 + 3 = 7` points.  
 
-# Win Conditions:
-   - The game ends when a player reaches or exceeds the target score (default: 50 points).
-   - The winner and final scores are displayed.
+2. **Player 2** rolls `5, 5, 5`:  
+   - "Tuple Out!" Scores `0` points.  
 
-# Example Gameplay
-1. Player 1 rolls `2, 2, 4`:
-   - The two `2`s are fixed, and the player chooses to reroll the `4`.
-   - The reroll results in `3`, so the player scores `2 + 2 + 3 = 7` points.
-
-2. Player 2 rolls `5, 5, 5`:
-   - All three dice have the same value, so the player "Tuples Out" and scores `0` points for the turn.
-
-3. Player 3 rolls `1, 4, 6`:
-   - The player chooses to reroll all three dice.
-   - The reroll results in `2, 2, 5`, fixing the `2`s.
-   - The player decides not to reroll the `5` and scores `2 + 2 + 5 = 9` points.
-
-## Winning the Game
-- The first player to reach or exceed the target score wins.
-- At the end of the game, a summary of all turns and the winner is displayed.
-
-## New features coming soon!
+3. **Player 3** rolls `1, 4, 6`:  
+   - Rerolls all, fixes `2, 2`, scores `2 + 2 + 5 = 9` points.  
