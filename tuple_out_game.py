@@ -1,6 +1,7 @@
 import random
 import seaborn as sns
 import matplotlib.pyplot as plt
+import pandas as pd
 
 class TupleOutGame:
     def __init__(self, players, target_score=50):
@@ -47,6 +48,18 @@ class TupleOutGame:
         plt.legend(title="Players")
         plt.show()
 
+    def summarize_game(self):
+    # Create a DataFrame for the game history
+    df = pd.DataFrame(self.history, columns=["Player", "Total_Score"])
+    stats = df.groupby("Player").agg(
+        Turns_Played=("Player", "count"),
+        Total_Score=("Total_Score", "max"),
+        Average_Score=("Total_Score", "mean"),
+        Tuple_Outs=("Total_Score", lambda x: (x == 0).sum())
+    )
+    print("\nGame Summary Statistics:")
+    print(stats)
+    
     def play_game(self):
         print(f"Welcome to Tuple Out! Target Score: {self.target_score}")
         while True:
@@ -56,11 +69,12 @@ class TupleOutGame:
             winner = self.check_winner()
             if winner:
                 print(f"Congratulations, {winner} wins with {self.scores[winner]} points!")
-                self.visualize_scores()  # Show the visualization at the end
+                self.visualize_scores()  # Show the Seaborn graph
+                self.summarize_game()    # Show the summary stats using Pandas
                 break
-
+                
             self.current_player_index = (self.current_player_index + 1) % len(self.players)
-
+    
 # Game setup
 num_players = int(input("Enter the number of players: "))
 players = [input(f"Enter name for Player {i + 1}: ") for i in range(num_players)]
